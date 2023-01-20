@@ -104,3 +104,28 @@ function findIndexByID(id) {
     return users['users_list'].findIndex( (user) => user['id'] === id); // or line below
     //return users['users_list'].filter( (user) => user['id'] === id);
 }
+
+app.get('/users', (req, res) => {
+    const name = req.query.name;
+    const job = req.query.job;
+    if (name != undefined) {
+        let result = findUserByName(name);
+        result = {users_list: result};
+        res.send(result);
+    }
+    ///else{
+    ///    res.send(users);
+    ///}
+    if (job != undefined){
+        let result = findUserByJob(job);
+        result = {users_list: result};
+        res.send(result);
+    }
+    else{
+        res.send(users);
+    }
+});
+
+const findUserByJob = (job) => { 
+    return users['users_list'].filter( (user) => user['job'] === job); 
+}
