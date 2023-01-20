@@ -85,4 +85,22 @@ app.post('/users', (req, res) => {
 function addUser(user){
     users['users_list'].push(user);
 }
- 
+
+app.delete('/users/:id', (req, res) => {
+    const userToDelete = req.params['id'];
+    const i = findIndexByID(userToDelete); 
+    if (i === undefined || i < 0) {
+        {res.status(400).end();}
+    }
+    else {deleteUser(i);
+    res.status(200).end();}
+});
+
+function deleteUser(i){
+    users['users_list'].splice(i, 1);
+}
+
+function findIndexByID(id) {
+    return users['users_list'].findIndex( (user) => user['id'] === id); // or line below
+    //return users['users_list'].filter( (user) => user['id'] === id);
+}
