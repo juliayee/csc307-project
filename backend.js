@@ -113,9 +113,6 @@ app.get('/users', (req, res) => {
         result = {users_list: result};
         res.send(result);
     }
-    ///else{
-    ///    res.send(users);
-    ///}
     if (job != undefined){
         let result = findUserByJob(job);
         result = {users_list: result};
