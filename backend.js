@@ -88,6 +88,7 @@ app.post('/users', (req, res) => {
     const userToAdd = req.body;
     userToAdd.id = id;
     addUser(userToAdd);
+    res.status(201).send(userToAdd);
     res.status(201).end();
 });
 
