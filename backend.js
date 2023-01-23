@@ -88,8 +88,8 @@ app.post('/users', (req, res) => {
     const userToAdd = req.body;
     userToAdd.id = id;
     addUser(userToAdd);
-    res.status(201).send(userToAdd);
-    res.status(201).end();
+    res.status(201).send(userToAdd).end();
+    //res.status(201).end();
 });
 
 function addUser(user){
@@ -99,8 +99,8 @@ function addUser(user){
 app.delete('/users/:id', (req, res) => {
     const userToDelete = req.params['id'];
     const i = findIndexByID(userToDelete); 
-    if (i === undefined || i < 0) {
-        {res.status(400).end();}
+    if (i === undefined || i < 0) {                 // split here for 404 ?
+        {res.status(400).end();}            
     }
     else {deleteUser(i);
     res.status(201).end();}
