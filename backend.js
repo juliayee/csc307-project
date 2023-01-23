@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 5000;
 const cors = require('cors');
+const { response } = require('express');
 
 app.use(cors());
 app.use(express.json());
@@ -88,7 +89,7 @@ app.post('/users', (req, res) => {
     const userToAdd = req.body;
     userToAdd.id = id;
     addUser(userToAdd);
-    res.status(201).send(userToAdd).end();
+    res.status(201).send(userToAdd).end();     
     //res.status(201).end();
 });
 
