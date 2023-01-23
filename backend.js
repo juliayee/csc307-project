@@ -99,7 +99,7 @@ function addUser(user){
 app.delete('/users/:id', (req, res) => {
     const userToDelete = req.params['id'];
     const i = findIndexByID(userToDelete); 
-    if (i === undefined || i < 0) {                 // split here for 404 ?
+    if (i === undefined || i < 0) {        
         {res.status(404).end();}            
     }
     else {deleteUser(i);
