@@ -78,14 +78,15 @@ function findUserById(id) {
     //return users['users_list'].filter( (user) => user['id'] === id);
 }
 
-/*function randomID() {
+function randomID() {
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
     return alphabet[Math.floor(Math.random() * alphabet.length)] + alphabet[Math.floor(Math.random() * alphabet.length)] + alphabet[Math.floor(Math.random() * alphabet.length)] + Math.floor(Math.random()*(999-100+1)+100);
-}*/
+}
 
 app.post('/users', (req, res) => {
-    //const id = randomID();
+    const id = randomID();
     const userToAdd = req.body;
+    userToAdd.id = id;
     addUser(userToAdd);
     res.status(201).end();
 });
