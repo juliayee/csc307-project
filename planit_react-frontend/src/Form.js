@@ -3,43 +3,71 @@ import React, {useState} from 'react';
 function Form(props) {
   const [person, setPerson] = useState(
      {
-        name: "",
-        job: "",
+        task: "",
+        duedate: "",
+        category: "",
      }
   );
 
   function handleChange(event) {
-    const { name, value } = event.target;
-    if (name === "job")
+    const { task, value } = event.target;
+    if (task === "duedate")
       setPerson(
-         {name: person['name'], job: value}
+         {task: person['task'], duedate: value}
       );
     else     
        setPerson(
-         {name: value, job: person['job']}   
+         {task: value, duedate: person['duedate']}   
        );
+
+    const { duedate, item } = event.target;
+    if (duedate === "duedate")
+      setPerson(
+        {task: person['duedate'], duedate: item}
+      );
+    else     
+      setPerson(
+        {task: item, duedate: person['duedate']}   
+      );
+
+    const { category, cat } = event.target;
+    if (category === "category")
+      setPerson(
+        {task: person['category'], category: cat}
+      );
+    else     
+      setPerson(
+        {task: cat, duedate: person['category']}   
+      );
   }
 
   function submitForm() {
     props.handleSubmit(person);
-    setPerson({name: '', job: ''});
+    setPerson({task: '', duedate: '', category: ''});
   }
 
   return (
     <form>
-      <label htmlFor="name">Name</label>
+      <label htmlFor="task">Task</label>
       <input
         type="text"
-        name="name"
-        id="name"
-        value={person.name}
+        task="task"
+        id="task"
+        value={person.task}
         onChange={handleChange} />
-      <label htmlFor="job">Job</label>
+      <label htmlFor="duedate">Due Date</label>
       <input
         type="text"
-        name="job"
-        id="job"
-        value={person.job}
+        task="duedate"
+        id="duedate"
+        value={person.duedate}
+        onChange={handleChange} />
+      <label htmlFor="category">Category</label>
+      <input
+        type="text"
+        task="category"
+        id="category"
+        value={person.category}
         onChange={handleChange} />
         <input type="button" value="Submit" onClick={submitForm} />
     </form>

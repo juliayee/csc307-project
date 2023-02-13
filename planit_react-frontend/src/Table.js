@@ -4,9 +4,9 @@ function TableHeader()  {
     return (
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Job</th>
-          <th>ID</th>
+          <th>Task</th>
+          <th>Due Date</th>
+          <th>Category</th>
           <th>Remove</th>
         </tr>
       </thead>
@@ -17,9 +17,9 @@ function TableHeader()  {
     const rows = props.characterData.map((row, index) => {
       return (
         <tr key={index}>      
-  <td>{row.name}</td>
-  <td>{row.job}</td>
-  <td>{row.id}</td>
+  <td>{row.task}</td>
+  <td>{row.duedate}</td>
+  <td>{row.category}</td>
   <td>
     <button onClick={() => props.removeCharacter(index)}>Delete</button>
   </td>
