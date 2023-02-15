@@ -10,39 +10,26 @@ function Form(props) {
   );
 
   function handleChange(event) {
-    const { task, value } = event.target;
-    if (task === "duedate")
+    const { name, value } = event.target;
+    if (name === "task")
       setPerson(
-         {task: person['task'], duedate: value}
-      );
-    else     
-       setPerson(
-         {task: value, duedate: person['duedate']}   
-       );
-
-    const { duedate, item } = event.target;
-    if (duedate === "duedate")
-      setPerson(
-        {task: person['duedate'], duedate: item}
-      );
-    else     
-      setPerson(
-        {task: item, duedate: person['duedate']}   
+         {task: value, duedate: person['duedate'], category: person["category"]}
       );
 
-    const { category, cat } = event.target;
-    if (category === "category")
+    else if (name === "duedate")
       setPerson(
-        {task: person['category'], category: cat}
+        {task: person['task'], duedate: value, category: person["category"]}
       );
-    else     
+
+    else if (name === "category")
       setPerson(
-        {task: cat, duedate: person['category']}   
+        {task: person['task'], duedate: person["duedate"], category: value}
       );
   }
 
   function submitForm() {
     props.handleSubmit(person);
+    console.log(person);
     setPerson({task: '', duedate: '', category: ''});
   }
 
@@ -51,21 +38,21 @@ function Form(props) {
       <label htmlFor="task">Task</label>
       <input
         type="text"
-        task="task"
+        name="task"
         id="task"
         value={person.task}
         onChange={handleChange} />
       <label htmlFor="duedate">Due Date</label>
       <input
         type="text"
-        task="duedate"
+        name="duedate"
         id="duedate"
         value={person.duedate}
         onChange={handleChange} />
       <label htmlFor="category">Category</label>
       <input
         type="text"
-        task="category"
+        name="category"
         id="category"
         value={person.category}
         onChange={handleChange} />
