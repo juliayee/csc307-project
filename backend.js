@@ -21,22 +21,22 @@ const users = {
        { 
           category : 'math',
           task : 'hw 7',
-          deadline: '2/18/23',
+          duedate: '2/18/23',
        },
        {
           category : 'cs307', 
           task: 'project',
-          deadline: '2/14/23',
+          duedate: '2/14/23',
        },
        {
           category : 'cs307', 
           task: 'quiz',
-          deadline: '2/20/23',
+          duedate: '2/20/23',
        }, 
        {
           category: 'fitness', 
           task: 'yoga',
-          deadline: '2/13/23',
+          duedate: '2/13/23',
        }
     ]
  }
@@ -74,15 +74,8 @@ function findUserBycategory(category) {
     //return users['users_list'].filter( (user) => user['category'] === category);
 }
 
-/*function randomcategory() {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz"
-    return alphabet[Math.floor(Math.random() * alphabet.length)] + alphabet[Math.floor(Math.random() * alphabet.length)] + alphabet[Math.floor(Math.random() * alphabet.length)] + Math.floor(Math.random()*(999-100+1)+100);
-}*/
-
 app.post('/users', (req, res) => {
-    //const category = randomcategory();
     const userToAdd = req.body;
-    userToAdd.category = category;
     addUser(userToAdd);
     res.status(201).send(userToAdd).end();     
 });
