@@ -19,38 +19,33 @@ const users = {
     users_list :
     [
        { 
-          id : 'xyz789',
-          name : 'Charlie',
-          job: 'Janitor',
+          category : 'math',
+          task : 'hw 7',
+          duedate: '2/18/23',
        },
        {
-          id : 'abc123', 
-          name: 'Mac',
-          job: 'Bouncer',
+          category : 'cs307', 
+          task: 'project',
+          duedate: '2/14/23',
        },
        {
-          id : 'ppp222', 
-          name: 'Mac',
-          job: 'Professor',
+          category : 'cs307', 
+          task: 'quiz',
+          duedate: '2/20/23',
        }, 
        {
-          id: 'yat999', 
-          name: 'Dee',
-          job: 'Aspring actress',
-       },
-       {
-          id: 'zap555', 
-          name: 'Dennis',
-          job: 'Bartender',
+          category: 'fitness', 
+          task: 'yoga',
+          duedate: '2/13/23',
        }
     ]
  }
 
 
 app.get('/users', (req, res) => {
-    const name = req.query.name;
-    if (name != undefined){
-        let result = findUserByName(name);
+    const task = req.query.task;
+    if (task != undefined){
+        let result = findUserBytask(task);
         result = {users_list: result};
         res.send(result);
     }
@@ -59,13 +54,13 @@ app.get('/users', (req, res) => {
     }
 });
 
-const findUserByName = (name) => { 
-    return users['users_list'].filter( (user) => user['name'] === name); 
+const findUserBytask = (task) => { 
+    return users['users_list'].filter( (user) => user['task'] === task); 
 }
 
-app.get('/users/:id', (req, res) => {
-    const id = req.params['id']; //or req.params.id
-    let result = findUserById(id);
+app.get('/users/:category', (req, res) => {
+    const category = req.params['category']; //or req.params.category
+    let result = findUserBycategory(category);
     if (result === undefined || result.length == 0)
         res.status(404).send('Resource not found.');
     else {
@@ -74,20 +69,13 @@ app.get('/users/:id', (req, res) => {
     }
 });
 
-function findUserById(id) {
-    return users['users_list'].find( (user) => user['id'] === id); // or line below
-    //return users['users_list'].filter( (user) => user['id'] === id);
-}
-
-function randomID() {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz"
-    return alphabet[Math.floor(Math.random() * alphabet.length)] + alphabet[Math.floor(Math.random() * alphabet.length)] + alphabet[Math.floor(Math.random() * alphabet.length)] + Math.floor(Math.random()*(999-100+1)+100);
+function findUserBycategory(category) {
+    return users['users_list'].find( (user) => user['category'] === category); // or line below
+    //return users['users_list'].filter( (user) => user['category'] === category);
 }
 
 app.post('/users', (req, res) => {
-    const id = randomID();
     const userToAdd = req.body;
-    userToAdd.id = id;
     addUser(userToAdd);
     res.status(201).send(userToAdd).end();     
 });
@@ -96,9 +84,9 @@ function addUser(user){
     users['users_list'].push(user);
 }
 
-app.delete('/users/:id', (req, res) => {
-    const userToDelete = req.params['id'];
-    const i = findIndexByID(userToDelete); 
+app.delete('/users/:category', (req, res) => {
+    const userToDelete = req.params['category'];
+    const i = findIndexBycategory(userToDelete); 
     if (i === undefined || i < 0) {        
         {res.status(404).end();}            
     }
@@ -110,21 +98,21 @@ function deleteUser(i){
     users['users_list'].splice(i, 1);
 }
 
-function findIndexByID(id) {
-    return users['users_list'].findIndex( (user) => user['id'] === id); // or line below
-    //return users['users_list'].filter( (user) => user['id'] === id);
+function findIndexBycategory(category) {
+    return users['users_list'].findIndex( (user) => user['category'] === category); // or line below
+    //return users['users_list'].filter( (user) => user['category'] === category);
 }
 
 app.get('/users', (req, res) => {
-    const name = req.query.name;
-    const job = req.query.job;
-    if (name != undefined) {
-        let result = findUserByName(name);
+    const task = req.query.task;
+    const deadline = req.query.deadline;
+    if (task != undefined) {
+        let result = findUserBytask(task);
         result = {users_list: result};
         res.send(result);
     }
-    if (job != undefined){
-        let result = findUserByJob(job);
+    if (deadline != undefined){
+        let result = findUserBydeadline(deadline);
         result = {users_list: result};
         res.send(result);
     }
@@ -133,6 +121,6 @@ app.get('/users', (req, res) => {
     }
 });
 
-const findUserByJob = (job) => { 
-    return users['users_list'].filter( (user) => user['job'] === job); 
+const findUserBydeadline = (deadline) => { 
+    return users['users_list'].filter( (user) => user['deadline'] === deadline); 
 }
