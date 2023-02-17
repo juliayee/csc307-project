@@ -9,8 +9,8 @@ Style Guide:
 
 For IDE plugins using VScode:
 1. Download the prettier ESLint extension
-2. run the command npm i -D prettier@^2.5.1 eslint@^8.7.0
-3.In settings.json file add the following code:
+2. run the command npm i -D prettier@^2.5.1 eslint@^8.7.0.
+3. In settings.json file add the following code:
 {
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "editor.formatOnPaste": false, // required 
@@ -19,4 +19,4 @@ For IDE plugins using VScode:
   "editor.formatOnSaveMode": "file", // required to format on save
   "files.autoSave": "onFocusChange" // optional but recommended
 }
-4.Restart VSCode
+4. Restart VSCode
