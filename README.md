@@ -1,11 +1,8 @@
 # PlanIt
 
 Style Guide:
-1. Put all opening brackets at the end of the first line
-2. Put all closing brackets on a new line
-3. Naming functions following camelCase convention
-4. Use a single tab to indent code blocks
-5. Put all opening brackets at the end of the first line
+We will be styling our code based off of the Google JavaScript Style Guide
+Link: https://google.github.io/styleguide/jsguide.html
 
 For IDE plugins using VScode:
 1. Download the prettier ESLint extension
