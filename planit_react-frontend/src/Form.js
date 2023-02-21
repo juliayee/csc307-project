@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import * as ReactDOM from 'react-dom';
 function Form(props) {
   const [person, setPerson] = useState(
      {
@@ -50,6 +50,8 @@ function Form(props) {
         value={person.duedate}
         onChange={handleChange} />
       <label htmlFor="category">Category</label>
+      <label className="priority" htmlFor="priority">Priority</label>
+      <label className="date" htmlFor="date">February 20, 2023</label>
       <input
         type="text"
         name="category"
