@@ -51,7 +51,10 @@ function Form(props) {
         onChange={handleChange} />
       <label htmlFor="category">Category</label>
       <label className="priority" htmlFor="priority">Priority</label>
-      <label className="date" htmlFor="date">February 20, 2023</label>
+      <label className="date" htmlFor="date">February 22, 2023</label>
+      <label className="today" htmlFor="today">Today</label>
+      <label className="week" htmlFor="week">Week</label>
+      <label className="calendar" htmlFor="calendar">Calendar</label>
       <input
         type="text"
         name="category"
