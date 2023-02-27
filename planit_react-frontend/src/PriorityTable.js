@@ -4,7 +4,7 @@ function TableHeader()  {
     return (
       <thead>
         <tr>
-          <th>Today</th>
+          <th>Priority</th>
           <th>Due Date</th>
           <th>Category</th>
           <th>Remove</th>
@@ -14,11 +14,9 @@ function TableHeader()  {
   }
 
   function TableBody(props) {
-    //const today = "2/23/23";
-    const today = new Date().toLocaleDateString();
-    //MM/DD/YYYY or single digits remain single digits
+    const priority_val = "yes";
     const rows = props.characterData.map((row, index) => {
-      if(row.duedate == today){
+      if(row.priority == priority_val){
       return (
         <tr key={index}>      
   <td>{row.task}</td>
