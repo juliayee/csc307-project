@@ -1,11 +1,10 @@
 import React from 'react'
 
-
 function TableHeader()  {
     return (
       <thead>
         <tr>
-          <th>Task</th>
+          <th>Today</th>
           <th>Due Date</th>
           <th>Category</th>
           <th>Remove</th>
@@ -15,7 +14,9 @@ function TableHeader()  {
   }
 
   function TableBody(props) {
+    const today = "2/23/23";
     const rows = props.characterData.map((row, index) => {
+      if(row.duedate == today){
       return (
         <tr key={index}>      
   <td>{row.task}</td>
@@ -26,6 +27,7 @@ function TableHeader()  {
   </td>
 </tr>
       );
+    }
      }
     );
     return (
