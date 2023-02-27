@@ -14,7 +14,9 @@ function TableHeader()  {
   }
 
   function TableBody(props) {
-    const today = "2/23/23";
+    //const today = "2/23/23";
+    const today = new Date().toLocaleDateString();
+    //MM/DD/YYYY or single digits remain single digits
     const rows = props.characterData.map((row, index) => {
       if(row.duedate == today){
       return (
