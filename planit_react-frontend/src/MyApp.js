@@ -1,6 +1,7 @@
 //import React, {useState} from 'react';
 import Table from './Table';
 import TodayTable from './TodayTable';
+import PriorityTable from './PriorityTable';
 import Form from './Form';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
@@ -19,6 +20,7 @@ function MyApp() {
     <div className="container">
       <Table characterData={characters} removeCharacter={removeOneCharacter} />
       <TodayTable characterData={characters} removeCharacter={removeOneCharacter} />
+      <PriorityTable characterData={characters} removeCharacter={removeOneCharacter} />
       <Form handleSubmit={updateList} />
     </div>
   )
