@@ -41,15 +41,15 @@ app.listen(port, () => {
 //   ],
 // };
 
-app.get("/users", (req, res) => {
+app.get("/users", async (req, res) => {
   const task = req.query.task;
-  if (task != undefined) {
-    let result = findUserBytask(task);
+  try {
+    const result = await userServices.getUsers(task);
     // result = { users_list: result };
-    res.send(result);
-  } else {
-    const results = userServices.getUsers();
-    res.send(results);
+    res.send({ users_list: result });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("An error ocurred in the server.");
   }
 });
 
