@@ -43,8 +43,10 @@ app.listen(port, () => {
 
 app.get("/users", async (req, res) => {
   const task = req.query.task;
+  const category = req.query.category;
+  const duedate = req.query.duedate;
   try {
-    const result = await userServices.getUsers(task);
+    const result = await userServices.getUsers(task, category, duedate);
     // result = { users_list: result };
     res.send({ users_list: result });
   } catch (error) {
@@ -57,7 +59,7 @@ const findUserBytask = (task) => {
   return users["users_list"].filter((user) => user["task"] === task);
 };
 
-app.get("/users/:category", (req, res) => {
+app.get("/users/:id", (req, res) => {
   const category = req.params["category"]; //or req.params.category
   let result = userServices.getUserByCategory(category);
   if (result === undefined || result.length == 0)
@@ -73,10 +75,12 @@ function findUserBycategory(category) {
   //return users['users_list'].filter( (user) => user['category'] === category);
 }
 
-app.post("/users", (req, res) => {
-  const userToAdd = req.body;
-  addUser(userToAdd);
-  res.status(201).send(userToAdd).end();
+app.post("/users", async (req, res) => {
+  const user = req.body;
+  const savedUser = await userServices.addUser(user);
+
+  if (savedUser) res.status(201).send(savedUser);
+  else res.status(500).end();
 });
 
 function addUser(user) {
