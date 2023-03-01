@@ -25,6 +25,20 @@ async function getUsers(task, category, duedate) {
   return result;
 }
 
+async function deleteUsers(task, category, duedate) {
+  let result;
+  if (task === undefined && category === undefined && duedate === undefined) {
+    result = await userModel.find();
+  } else if (task && !category && !duedate) {
+    result = await deleteUserByTask(task);
+  } else if (category && !task && !duedate) {
+    result = await deleteUserByCat(category);
+  } else if (duedate && !task && !category) {
+    result = await deleteUserBydueDate(duedate);
+  }
+  return result;
+}
+
 async function getUserByCategory(category) {
   let result;
   if (category === undefined) {
@@ -93,6 +107,10 @@ async function deleteUserByCategory(category) {
 
 async function deleteUserByTask(task) {
   return await userModel.remove({ task: task });
+}
+
+async function deleteUserBydueDate(duedate) {
+  return await userModel.remove({ duedate: duedate });
 }
 
 exports.getUsers = getUsers;
