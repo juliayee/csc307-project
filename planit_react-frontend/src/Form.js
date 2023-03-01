@@ -6,6 +6,7 @@ function Form(props) {
         task: "",
         duedate: "",
         category: "",
+        priority: "",
      }
   );
 
@@ -13,24 +14,29 @@ function Form(props) {
     const { name, value } = event.target;
     if (name === "task")
       setPerson(
-         {task: value, duedate: person['duedate'], category: person["category"]}
+         {task: value, duedate: person['duedate'], category: person["category"], priority: person["priority"]}
       );
 
     else if (name === "duedate")
       setPerson(
-        {task: person['task'], duedate: value, category: person["category"]}
+        {task: person['task'], duedate: value, category: person["category"], priority: person["priority"]}
       );
 
     else if (name === "category")
       setPerson(
         {task: person['task'], duedate: person["duedate"], category: value}
       );
+
+      else if (name === "priority")
+      setPerson(
+        {task: person['task'], duedate: person["duedate"], category: person["category"], priority: value}
+      );
   }
 
   function submitForm() {
     props.handleSubmit(person);
     console.log(person);
-    setPerson({task: '', duedate: '', category: ''});
+    setPerson({task: '', duedate: '', category: '', priority:''});
   }
 
   return (
@@ -50,18 +56,27 @@ function Form(props) {
         value={person.duedate}
         onChange={handleChange} />
       <label htmlFor="category">Category</label>
-      <label className="priority" htmlFor="priority">Priority</label>
-      <label className="date" htmlFor="date">February 22, 2023</label>
-      <label className="today" htmlFor="today">Today</label>
-      <label className="week" htmlFor="week">Week</label>
-      <label className="calendar" htmlFor="calendar">Calendar</label>
       <input
         type="text"
         name="category"
         id="category"
         value={person.category}
         onChange={handleChange} />
-        <input type="button" value="Submit" onClick={submitForm} />
+      <label htmlFor="priority">Priority? (yes/no)</label>
+      <input
+        type="text"
+        name="priority"
+        id="priority"
+        value={person.priority}
+        onChange={handleChange} />
+       
+
+      <label className="date" htmlFor="date">February 22, 2023</label>
+      <label className="today" htmlFor="today">Today</label>
+      <label className="week" htmlFor="week">Week</label>
+      <label className="calendar" htmlFor="calendar">Calendar</label>
+      <input type="button" value="Submit" onClick={submitForm} />
+
     </form>
 );
 
