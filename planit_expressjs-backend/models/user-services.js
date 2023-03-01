@@ -1,20 +1,26 @@
 const mongoose = require("mongoose");
 const userModel = require("./user");
 mongoose.set("debug", true);
+const dotenv = require("dotenv");
+dotenv.config();
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/users", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .catch((error) => console.log(error));
 
-async function getUsers(task) {
+async function getUsers(task, category, duedate) {
   let result;
-  if (task === undefined) {
+  if (task === undefined && category === undefined && duedate === undefined) {
     result = await userModel.find();
-  } else if (task) {
+  } else if (task && !category && !duedate) {
     result = await findUserByTask(task);
+  } else if (category && !task && !duedate) {
+    result = await findUserByCategory(category);
+  } else if (duedate && !task && !category) {
+    result = await findUserBydueDate(duedate);
   }
   return result;
 }
@@ -75,6 +81,10 @@ async function findUserByTask(task) {
 
 async function findUserByCategory(category) {
   return await userModel.find({ category: category });
+}
+
+async function findUserBydueDate(duedate) {
+  return await userModel.find({ duedate: duedate });
 }
 
 async function deleteUserByCategory(category) {
