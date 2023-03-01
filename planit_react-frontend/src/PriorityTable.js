@@ -27,6 +27,8 @@ function TableHeader()  {
   </td>
 </tr>
       );
+    } else{
+      return null;
     }
      }
     );

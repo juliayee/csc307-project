@@ -30,6 +30,9 @@ function TableHeader()  {
 </tr>
       );
     }
+    else{
+      return null;
+    }
      }
     );
     return (
