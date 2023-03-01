@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "backend.js",
   "scripts": {
-    "test": "prettier --check . && jest",
+    "test": "prettier --check . && jest --passWithNoTests",
     "dev": "nodemon backend.js",
     "start": "node backend.js"
   },
