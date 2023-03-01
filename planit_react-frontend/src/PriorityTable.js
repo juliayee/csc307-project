@@ -16,7 +16,7 @@ function TableHeader()  {
   function TableBody(props) {
     const priority_val = "yes";
     const rows = props.characterData.map((row, index) => {
-      if(row.priority == priority_val){
+      if(row.priority === priority_val){
       return (
         <tr key={index}>      
   <td>{row.task}</td>
@@ -27,6 +27,8 @@ function TableHeader()  {
   </td>
 </tr>
       );
+    } else{
+      return null;
     }
      }
     );

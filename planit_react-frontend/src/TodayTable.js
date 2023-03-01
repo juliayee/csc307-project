@@ -18,7 +18,7 @@ function TableHeader()  {
     const today = new Date().toLocaleDateString();
     //MM/DD/YYYY or single digits remain single digits
     const rows = props.characterData.map((row, index) => {
-      if(row.duedate == today){
+      if(row.duedate === today){
       return (
         <tr key={index}>      
   <td>{row.task}</td>
@@ -29,6 +29,9 @@ function TableHeader()  {
   </td>
 </tr>
       );
+    }
+    else{
+      return null;
     }
      }
     );
