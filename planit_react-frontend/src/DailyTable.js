@@ -22,6 +22,7 @@ function TableHeader()  {
 
     let today = new Date().toLocaleDateString();
     const target = today.split("/");
+    
     const rows = props.characterData.map((row, index) => {
       if(mdy[0] === target[0] && mdy[1] === target[1]
          && mdy[2] === target[2]){
