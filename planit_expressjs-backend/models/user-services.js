@@ -11,7 +11,7 @@ mongoose
   })
   .catch((error) => console.log(error));
 
-async function getUsers(task, category, duedate,priority) {
+async function getUsers(task, category, duedate, priority) {
   let result;
   if (task === undefined && category === undefined && duedate === undefined && priority === undefined) {
     result = await userModel.find().sort({duedate : 1});
