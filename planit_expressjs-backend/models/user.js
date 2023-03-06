@@ -17,6 +17,11 @@ const UserSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    priority: {
+      type: String,
+      required: true,
+      trim: true,
+    },
   },
   { collection: "users_list" }
 );

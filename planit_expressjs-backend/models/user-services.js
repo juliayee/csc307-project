@@ -11,19 +11,22 @@ mongoose
   })
   .catch((error) => console.log(error));
 
-async function getUsers(task, category, duedate) {
+async function getUsers(task, category, duedate,priority) {
   let result;
-  if (task === undefined && category === undefined && duedate === undefined) {
-    result = await userModel.find();
-  } else if (task && !category && !duedate) {
+  if (task === undefined && category === undefined && duedate === undefined && priority === undefined) {
+    result = await userModel.find().sort({duedate : 1});
+  } else if (task && !category && !duedate && !priority) {
     result = await findUserByTask(task);
-  } else if (category && !task && !duedate) {
+  } else if (category && !task && !duedate && !priority) {
     result = await findUserByCategory(category);
-  } else if (duedate && !task && !category) {
+  } else if (duedate && !task && !category && !priority) {
     result = await findUserBydueDate(duedate);
+  } else if (priority && !task && !category && !duedate) {
+    result = await findUserBydueDate(priority);
   }
   return result;
 }
+
 
 async function deleteUsers(task, category, duedate) {
   let result;

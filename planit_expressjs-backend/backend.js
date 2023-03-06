@@ -45,8 +45,9 @@ app.get("/users", async (req, res) => {
   const task = req.query.task;
   const category = req.query.category;
   const duedate = req.query.duedate;
+  const priority = req.query.priority;
   try {
-    const result = await userServices.getUsers(task, category, duedate);
+    const result = await userServices.getUsers(task, category, duedate, priority);
     // result = { users_list: result };
     res.send({ users_list: result });
   } catch (error) {
@@ -78,7 +79,6 @@ function findUserBycategory(category) {
 app.post("/users", async (req, res) => {
   const user = req.body;
   const savedUser = await userServices.addUser(user);
-
   if (savedUser) res.status(201).send(savedUser);
   else res.status(500).end();
 });
@@ -99,6 +99,8 @@ app.delete("/users/:category", (req, res) => {
     res.status(204).end();
   }
 });
+
+
 
 function deleteUser(i) {
   users["users_list"].splice(i, 1);
