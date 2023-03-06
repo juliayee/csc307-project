@@ -2,8 +2,6 @@
 import Table from './Table';
 import TodayTable from './TodayTable';
 import PriorityTable from './PriorityTable';
-import DailyTable from './DailyTable';
-import WeekTable from './WeekTable';
 import Form from './Form';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
@@ -23,8 +21,6 @@ function MyApp() {
       <Table characterData={characters} removeCharacter={removeOneCharacter} />
       <TodayTable characterData={characters} removeCharacter={removeOneCharacter} />
       <PriorityTable characterData={characters} removeCharacter={removeOneCharacter} />
-      <DailyTable characterData={characters} removeCharacter={removeOneCharacter} />
-      <WeekTable characterData={characters} removeCharacter={removeOneCharacter} />
       <Form handleSubmit={updateList} />
     </div>
   )
