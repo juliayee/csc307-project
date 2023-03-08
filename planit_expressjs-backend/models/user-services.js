@@ -13,8 +13,13 @@ mongoose
 
 async function getUsers(task, category, duedate, priority) {
   let result;
-  if (task === undefined && category === undefined && duedate === undefined && priority === undefined) {
-    result = await userModel.find().sort({duedate : 1});
+  if (
+    task === undefined &&
+    category === undefined &&
+    duedate === undefined &&
+    priority === undefined
+  ) {
+    result = await userModel.find().sort({ duedate: 1 });
   } else if (task && !category && !duedate && !priority) {
     result = await findUserByTask(task);
   } else if (category && !task && !duedate && !priority) {
@@ -26,7 +31,6 @@ async function getUsers(task, category, duedate, priority) {
   }
   return result;
 }
-
 
 async function deleteUsers(task, category, duedate) {
   let result;
