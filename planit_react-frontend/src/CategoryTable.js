@@ -14,7 +14,10 @@ function TableHeader()  {
   }
 
   function TableBody(props) {
+    /*Category that we want*/
     const category_val = "csc 307";
+    /*Gets rows with data and sees if category matches*/
+    /*If yes, displayed in table*/
     const rows = props.characterData.map((row, index) => {
       if(row.category === category_val){
       return (
