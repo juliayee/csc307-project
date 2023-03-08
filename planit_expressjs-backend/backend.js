@@ -51,7 +51,12 @@ app.get("/users", async (req, res) => {
   const duedate = req.query.duedate;
   const priority = req.query.priority;
   try {
-    const result = await userServices.getUsers(task, category, duedate, priority);
+    const result = await userServices.getUsers(
+      task,
+      category,
+      duedate,
+      priority
+    );
     // result = { users_list: result };
     res.send({ users_list: result });
   } catch (error) {
@@ -103,8 +108,6 @@ app.delete("/users/:category", (req, res) => {
     res.status(204).end();
   }
 });
-
-
 
 function deleteUser(i) {
   users["users_list"].splice(i, 1);
