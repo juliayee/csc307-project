@@ -68,9 +68,9 @@ async function deleteUserByCat(category) {
 
 async function deleteUserByT(task) {
   let result;
-  if (category === undefined) {
+  if (task === undefined) {
     result = await userModel.find();
-  } else if (category) {
+  } else if (task) {
     result = await deleteUserByTask(task);
   }
   return result;
@@ -120,9 +120,19 @@ async function deleteUserBydueDate(duedate) {
   return await userModel.remove({ duedate: duedate });
 }
 
+async function deleteUserById(id) {
+  try {
+    return await userModel.findByIdAndDelete(id);
+  } catch (error) {
+    console.log(error);
+    return undefined;
+  }
+}
+
 exports.getUsers = getUsers;
 exports.getUserByCategory = getUserByCategory;
 exports.findUserById = findUserById;
 exports.deleteUserByCat = deleteUserByCat;
 exports.deleteUserByT = deleteUserByT;
 exports.addUser = addUser;
+exports.deleteUserById = deleteUserById;

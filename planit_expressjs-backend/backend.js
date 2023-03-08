@@ -80,6 +80,20 @@ app.get("/users/:id", (req, res) => {
   }
 });
 
+// app.delete("/users/:id", async (req, res) => {
+//   const id = req.params["id"]; //or req.params.id
+//   const result = await userServices.deleteUserById(id);
+//   if (result === undefined || result.length == 0)
+//     res.status(404).send("Resource not found.");
+//   else {
+//     // users['users_list'] = users['users_list'].filter( (user) => user['id'] !== id);
+//     // res.send(id);
+//     // res.send({ users_list: result });
+//     res.status(500).send("An error ocurred in the server.");
+//     // result = {users_list: result};
+//   }
+// });
+
 function findUserBycategory(category) {
   return users["users_list"].find((user) => user["category"] === category); // or line below
   //return users['users_list'].filter( (user) => user['category'] === category);
@@ -96,16 +110,15 @@ function addUser(user) {
   users["users_list"].push(user);
 }
 
-app.delete("/users/:category", (req, res) => {
-  const userToDelete = req.params["category"];
-  const i = findIndexBycategory(userToDelete);
-  if (i === undefined || i < 0) {
-    {
-      res.status(404).end();
-    }
-  } else {
-    deleteUser(i);
-    res.status(204).end();
+app.delete("/users/:task", async (req, res) => {
+  const userToDelete = req.params["task"];
+  try {
+    const result = await userServices.deleteUserByT(userToDelete);
+    // result = { users_list: result };
+    res.send({ users_list: result });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("An error ocurred in the server.");
   }
 });
 
