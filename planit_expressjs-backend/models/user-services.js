@@ -125,6 +125,7 @@ async function deleteUserById(id) {
     return await userModel.findByIdAndDelete(id);
   } catch (error) {
     console.log(error);
+    console.log("this is wrong");
     return undefined;
   }
 }
