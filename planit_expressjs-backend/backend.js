@@ -111,7 +111,7 @@ function addUser(user) {
 }
 
 app.delete("/users/:id", async (req, res) => {
-  const userToDelete = req.params["_id"];
+  const userToDelete = req.params["id"];
   try {
     const result = await userServices.deleteUserById(userToDelete);
     // result = { users_list: result };
