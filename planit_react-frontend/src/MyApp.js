@@ -5,6 +5,13 @@ import PriorityTable from './PriorityTable';
 import Form from './Form';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import Layout from './pages/Layout';
+
+
+import { BrowserRouter, Routes,Link, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Daily from "./pages/Daily";
+
 
 function MyApp() {
   useEffect(() => {
@@ -16,14 +23,7 @@ function MyApp() {
   
 
   const [characters, setCharacters] = useState([]);
-  return (
-    <div className="container">
-      <Table characterData={characters} removeCharacter={removeOneCharacter} />
-      <TodayTable characterData={characters} removeCharacter={removeOneCharacter} />
-      <PriorityTable characterData={characters} removeCharacter={removeOneCharacter} />
-      <Form handleSubmit={updateList} />
-    </div>
-  )
+  
 
 function removeOneCharacter(index) {
    // go to index, get the id, assign to id
@@ -54,7 +54,7 @@ function removeOneCharacter(index) {
        return false;
     }
  }
-}
+
 
 async function fetchAll(){
   try {
@@ -68,4 +68,40 @@ async function fetchAll(){
   }
 }
 
+
+
+
+return (<>
+   <div className='container'>
+   <BrowserRouter>
+        <nav>
+          <ul>
+            <li>
+              <Link to='/Layout'>Layout</Link>
+            </li>
+            <li>
+              <Link to='/form'>Insert one</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path='/' element={<h1>Choose your path!</h1>} />
+          <Route
+            path='/Layout'
+            element={
+              <Layout/>
+            }
+          />
+          <Route path='/form' element={<Form handleSubmit={updateList} />} />
+          </Routes>
+      </BrowserRouter>   
+          <Table characterData={characters} removeCharacter={removeOneCharacter} />
+          <TodayTable characterData={characters} removeCharacter={removeOneCharacter} />
+          <PriorityTable characterData={characters} removeCharacter={removeOneCharacter} />
+          <Form handleSubmit={updateList} />
+ 
+    </div>
+    </>
+  )
+}
 export default MyApp;
