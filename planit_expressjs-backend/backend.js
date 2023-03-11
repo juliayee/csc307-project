@@ -110,10 +110,10 @@ function addUser(user) {
   users["users_list"].push(user);
 }
 
-app.delete("/users/:task", async (req, res) => {
-  const userToDelete = req.params["task"];
+app.delete("/users/:id", async (req, res) => {
+  const userToDelete = req.params["id"];
   try {
-    const result = await userServices.deleteUserByT(userToDelete);
+    const result = await userServices.deleteUserById(userToDelete);
     // result = { users_list: result };
     res.send({ users_list: result });
   } catch (error) {

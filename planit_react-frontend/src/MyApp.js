@@ -29,8 +29,8 @@ function MyApp() {
 
 function removeOneCharacter(index) {
    // go to index, get the id, assign to id
-   const id = characters[index].id;
-   console.log(id);
+   const id = characters[index]._id;
+   console.log(characters[index]);
    axios.delete('http://localhost:5000/users/'+id);         
   const updated = characters.filter((character, i) => {
       return i !== index
