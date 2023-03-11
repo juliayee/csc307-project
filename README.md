@@ -1,5 +1,10 @@
 # PlanIt
 
+Product Vision: 
+For college students/young adults who want to journal and track their to-do tasks all in one place, PlanIt is a productivity app that organizes and tracks tasks and feelings. Unlike other apps like Zinnia, our product is visually appealing, tailored specifically to college students, and made to prioritize certain tasks over others.
+
+UI Prototype (last updated on 2/14): https://www.figma.com/file/nJ9yRzaVXUI8pgcpM7H3Ae/PlanIt?node-id=24%3A854&t=MWBYoIXo8rsTKHkM-1
+
 Style Guide:
 We will be styling our code based off of the Google JavaScript Style Guide
 Link: https://google.github.io/styleguide/jsguide.html
@@ -17,3 +22,5 @@ For IDE plugins using VScode:
   "files.autoSave": "onFocusChange" // optional but recommended
 }
 4. Restart VSCode
+
+Class Diagram: https://app.diagrams.net/#G1uau4K67wX5fYqkEjaWqV3Via2kfw9NdI
