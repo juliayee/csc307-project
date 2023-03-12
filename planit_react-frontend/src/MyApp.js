@@ -6,6 +6,9 @@ import CategoryTable from './CategoryTable';
 import Form from './Form';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import Calendar from './components/Calendar';
 
 function MyApp() {
   useEffect(() => {
@@ -23,6 +26,7 @@ function MyApp() {
       <TodayTable characterData={characters} removeCharacter={removeOneCharacter} />
       <PriorityTable characterData={characters} removeCharacter={removeOneCharacter} />
       <CategoryTable characterData={characters} removeCharacter={removeOneCharacter} />
+      <Calendar/>
       <Form handleSubmit={updateList} />
     </div>
   )
@@ -69,5 +73,7 @@ async function fetchAll(){
      return false;         
   }
 }
+
+//------------- Calender stuff below -----------
 
 export default MyApp;
