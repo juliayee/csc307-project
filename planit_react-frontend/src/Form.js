@@ -47,7 +47,7 @@ function Form(props) {
     console.log("Update date:" + currentDate);
     return currentDate;
  }
-
+//date not sending to backend correctly
   return (
     <form>
       <label htmlFor="task">Task</label>
