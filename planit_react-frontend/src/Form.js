@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
+import Calendar from './components/Calendar';
 //import * as ReactDOM from 'react-dom';
+
 function Form(props) {
   const [person, setPerson] = useState(
      {
@@ -39,6 +41,13 @@ function Form(props) {
     setPerson({task: '', duedate: '', category: '', priority:''});
   }
 
+  function updateDate(date) { 
+    let currentDate = new Date(date);
+    currentDate = currentDate.toLocaleDateString();
+    console.log("Update date:" + currentDate);
+    return currentDate;
+ }
+
   return (
     <form>
       <label htmlFor="task">Task</label>
@@ -49,12 +58,13 @@ function Form(props) {
         value={person.task}
         onChange={handleChange} />
       <label htmlFor="duedate">Due Date</label>
-      <input
-        type="text"
+      <Calendar
+        type="text" 
         name="duedate"
         id="duedate"
-        value={person.duedate}
-        onChange={handleChange} />
+        value={updateDate}
+        onAccept={updateDate}
+        onChange={handleChange}/>
       <label htmlFor="category">Category</label>
       <input
         type="text"

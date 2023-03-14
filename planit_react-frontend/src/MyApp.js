@@ -26,7 +26,6 @@ function MyApp() {
       <TodayTable characterData={characters} removeCharacter={removeOneCharacter} />
       <PriorityTable characterData={characters} removeCharacter={removeOneCharacter} />
       <CategoryTable characterData={characters} removeCharacter={removeOneCharacter} />
-      <Calendar/>
       <Form handleSubmit={updateList} />
     </div>
   )
