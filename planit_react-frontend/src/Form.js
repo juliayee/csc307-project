@@ -46,7 +46,6 @@ function Form(props) {
     currentDate = currentDate.toLocaleDateString();
     console.log("Update date:" + currentDate);
     person.duedate = currentDate;
-    date = null;
  }
 
   return (
