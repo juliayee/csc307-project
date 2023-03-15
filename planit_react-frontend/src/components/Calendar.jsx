@@ -5,11 +5,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const Calender = (props) => {
-  console.log("Calender" + JSON.stringify(props));
+  //console.log("Calender" + JSON.stringify(props));
     return(
      <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DemoContainer components={['DatePicker']}>
-          <DatePicker label="Basic date picker" onAccept={props.onAccept} /> 
+          <DatePicker label="MM/DD/YYYY" onAccept={props.onAccept} /> 
         </DemoContainer>
       </LocalizationProvider>
     );

@@ -45,7 +45,8 @@ function Form(props) {
     let currentDate = new Date(date);
     currentDate = currentDate.toLocaleDateString();
     console.log("Update date:" + currentDate);
-    return currentDate;
+    person.duedate = currentDate;
+    date = null;
  }
 //date not sending to backend correctly
   return (
@@ -62,7 +63,7 @@ function Form(props) {
         type="text" 
         name="duedate"
         id="duedate"
-        value={updateDate}
+        //value={updateDate}
         onAccept={updateDate}
         onChange={handleChange}/>
       <label htmlFor="category">Category</label>
