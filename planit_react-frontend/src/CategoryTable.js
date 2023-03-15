@@ -1,5 +1,7 @@
 import React from 'react'
 
+var category_val = null;
+
 function TableHeader()  {
     return (
       <thead>
@@ -14,8 +16,6 @@ function TableHeader()  {
   }
 
   function TableBody(props) {
-    /*Category that we want*/
-    const category_val = "csc 307";
     /*Gets rows with data and sees if category matches*/
     /*If yes, displayed in table*/
     const rows = props.characterData.map((row, index) => {
@@ -41,11 +41,19 @@ function TableHeader()  {
          </tbody>
      );
   }
-  
-  
+
+  function submitCategory() {
+    category_val = document.getElementById("cat").value;
+  }
+
   function Table (props) {
     return (
       <table>
+        <td>
+          <label htmlFor="task">Enter a Category</label>
+          <input type="text" id="cat"/>
+          <button onClick={submitCategory}>Enter</button>
+        </td>
         <TableHeader />
         <TableBody characterData={props.characterData} removeCharacter={props.removeCharacter} />
       </table>

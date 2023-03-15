@@ -164,9 +164,7 @@ async function fetchAll(){
         <input type="button" value="Daily" onClick={handleDailyClick} />
         <input type="button" value="Priority" onClick={handlePriorityClick} />
         <input type="button" value="Weekly" onClick={handleWeeklyClick} />  
-        <PriorityTable characterData={characters} removeCharacter={removeOneCharacter} />
-
-        <Form handleSubmit={updateList} />
+        <CategoryTable characterData={characters} removeCharacter={removeOneCharacter} />
       </div>
     </> 
     ) 
