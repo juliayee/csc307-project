@@ -4,7 +4,7 @@
 import { findUserBycategory } from "./backend.js";
 
 const myFunctions = require("./backend.js");
-const myFunctions = require(".MyApp.js");
+const myFunctions2 = require(".MyApp.js");
 
 test("Testing findUserBydeadline -- success", () => {
   const users = [
