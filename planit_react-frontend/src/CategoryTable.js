@@ -6,7 +6,7 @@ function TableHeader()  {
     return (
       <thead>
         <tr>
-          <th>Category</th>
+          <th>Task</th>
           <th>Due Date</th>
           <th>Category</th>
           <th>Remove</th>
@@ -48,15 +48,18 @@ function TableHeader()  {
 
   function Table (props) {
     return (
-      <table>
-        <td>
+      <td>
+        <form>
           <label htmlFor="task">Enter a Category</label>
           <input type="text" id="cat"/>
           <button onClick={submitCategory}>Enter</button>
-        </td>
-        <TableHeader />
-        <TableBody characterData={props.characterData} removeCharacter={props.removeCharacter} />
-      </table>
+        </form>
+        <table>
+          <TableHeader />
+          <TableBody characterData={props.characterData} removeCharacter={props.removeCharacter} />
+        </table> 
+      </td>
+
     );
   }
   export default Table;

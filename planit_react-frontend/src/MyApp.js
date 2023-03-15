@@ -112,7 +112,7 @@ async function fetchAll(){
         <input type="button" value="Home" onClick={handleHomeClick} />
         <input type="button" value="Daily" onClick={handleDailyClick} />
         <input type="button" value="Priority" onClick={handlePriorityClick} />
-        <input type="button" value="Weekly" onClick={handleWeeklyClick} />
+        <input type="button" value="Category" onClick={handleWeeklyClick} />
         <Table characterData={characters} removeCharacter={removeOneCharacter} />
         <Form handleSubmit={updateList} />
       </div>
@@ -129,7 +129,7 @@ async function fetchAll(){
         <input type="button" value="Home" onClick={handleHomeClick} />
         <input type="button" value="Daily" onClick={handleDailyClick} />
         <input type="button" value="Priority" onClick={handlePriorityClick} />
-        <input type="button" value="Weekly" onClick={handleWeeklyClick} />
+        <input type="button" value="Category" onClick={handleWeeklyClick} />
         <TodayTable characterData={characters} removeCharacter={removeOneCharacter} />
       </div>
     </>
@@ -146,7 +146,7 @@ async function fetchAll(){
         <input type="button" value="Home" onClick={handleHomeClick} />
         <input type="button" value="Daily" onClick={handleDailyClick} />
         <input type="button" value="Priority" onClick={handlePriorityClick} />
-        <input type="button" value="Weekly" onClick={handleWeeklyClick} />
+        <input type="button" value="Category" onClick={handleWeeklyClick} />
         <PriorityTable characterData={characters} removeCharacter={removeOneCharacter} />
       </div>
     </>
@@ -163,7 +163,7 @@ async function fetchAll(){
         <input type="button" value="Home" onClick={handleHomeClick} />
         <input type="button" value="Daily" onClick={handleDailyClick} />
         <input type="button" value="Priority" onClick={handlePriorityClick} />
-        <input type="button" value="Weekly" onClick={handleWeeklyClick} />  
+        <input type="button" value="Category" onClick={handleWeeklyClick} />  
         <CategoryTable characterData={characters} removeCharacter={removeOneCharacter} />
       </div>
     </> 
