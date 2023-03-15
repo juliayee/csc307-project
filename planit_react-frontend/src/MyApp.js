@@ -28,16 +28,6 @@ function MyApp() {
   }, [page]);
   
 
-  const [characters, setCharacters] = useState([]);
-  return (
-    <div className="container">
-      <Table characterData={characters} removeCharacter={removeOneCharacter} />
-      <TodayTable characterData={characters} removeCharacter={removeOneCharacter} />
-      <PriorityTable characterData={characters} removeCharacter={removeOneCharacter} />
-      <CategoryTable characterData={characters} removeCharacter={removeOneCharacter} />
-      <Form handleSubmit={updateList} />
-    </div>
-  )
 
 
   
