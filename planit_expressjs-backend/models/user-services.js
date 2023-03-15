@@ -130,10 +130,28 @@ async function deleteUserById(id) {
   }
 }
 
-exports.getUsers = getUsers;
-exports.getUserByCategory = getUserByCategory;
+exports.getUsers = getUsers;                     
+exports.getUserByCategory = getUserByCategory;    
 exports.findUserById = findUserById;
 exports.deleteUserByCat = deleteUserByCat;
 exports.deleteUserByT = deleteUserByT;
 exports.addUser = addUser;
 exports.deleteUserById = deleteUserById;
+
+
+/* 
+getUsers - 5 tests
+deleteUsers - 4 tests 
+getUserByCategory - 2 tests
+deleteUserByCat - 2 tests
+deleteUserByT - 2 tests
+findUserById - ??
+addUser - ??
+findUserByTask
+findUserByCategory
+findUserBydueDate
+deleteUserByCategory
+deleteUserByTask
+deleteUserBydueDate
+deleteUserById
+*/
