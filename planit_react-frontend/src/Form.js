@@ -48,7 +48,7 @@ function Form(props) {
     person.duedate = currentDate;
     date = null;
  }
-//date not sending to backend correctly
+
   return (
     <form>
       <label htmlFor="task">Task</label>
