@@ -73,6 +73,5 @@ async function fetchAll(){
   }
 }
 
-//------------- Calender stuff below -----------
 
 export default MyApp;
