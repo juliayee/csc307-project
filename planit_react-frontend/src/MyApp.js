@@ -108,7 +108,7 @@ async function fetchAll(){
     return (
     <>
       <div className='container'>
-        <h1>Home</h1>; 
+        <h1>Home</h1> 
         <input type="button" value="Home" onClick={handleHomeClick} />
         <input type="button" value="Daily" onClick={handleDailyClick} />
         <input type="button" value="Priority" onClick={handlePriorityClick} />
@@ -125,7 +125,7 @@ async function fetchAll(){
     return (
     <>
       <div className='container'>
-        <h1>Daily Tasks</h1>; 
+        <h1>Today's Tasks</h1>
         <input type="button" value="Home" onClick={handleHomeClick} />
         <input type="button" value="Daily" onClick={handleDailyClick} />
         <input type="button" value="Priority" onClick={handlePriorityClick} />
@@ -142,7 +142,7 @@ async function fetchAll(){
     return (
     <>
       <div className='container'>
-        <h1>My Priority</h1>; 
+        <h1>Priority Tasks</h1>
         <input type="button" value="Home" onClick={handleHomeClick} />
         <input type="button" value="Daily" onClick={handleDailyClick} />
         <input type="button" value="Priority" onClick={handlePriorityClick} />
@@ -154,12 +154,12 @@ async function fetchAll(){
   }
 
   else{
-    console.log("daily page")
+    console.log("category page")
     return (
     <>
 
       <div className='container'>
-        <h1>My Weekly Schedule</h1>
+        <h1>Category</h1>
         <input type="button" value="Home" onClick={handleHomeClick} />
         <input type="button" value="Daily" onClick={handleDailyClick} />
         <input type="button" value="Priority" onClick={handlePriorityClick} />
