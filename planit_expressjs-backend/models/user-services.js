@@ -14,7 +14,7 @@ mongoose
 async function getUsers(task, category, duedate, priority) {
   let result;
   if (
-    task === undefined &&
+    task === undefined &&     // 5 tests all undef, task undef, 
     category === undefined &&
     duedate === undefined &&
     priority === undefined
@@ -32,7 +32,7 @@ async function getUsers(task, category, duedate, priority) {
   return result;
 }
 
-async function deleteUsers(task, category, duedate) {
+async function deleteUsers(task, category, duedate) { // 4 tests
   let result;
   if (task === undefined && category === undefined && duedate === undefined) {
     result = await userModel.find();
@@ -130,10 +130,28 @@ async function deleteUserById(id) {
   }
 }
 
-exports.getUsers = getUsers;
-exports.getUserByCategory = getUserByCategory;
+exports.getUsers = getUsers;                     
+exports.getUserByCategory = getUserByCategory;    
 exports.findUserById = findUserById;
 exports.deleteUserByCat = deleteUserByCat;
 exports.deleteUserByT = deleteUserByT;
 exports.addUser = addUser;
 exports.deleteUserById = deleteUserById;
+
+
+/* 
+getUsers - 5 tests
+deleteUsers - 4 tests 
+getUserByCategory - 2 tests
+deleteUserByCat - 2 tests
+deleteUserByT - 2 tests
+findUserById - ??
+addUser - ??
+findUserByTask
+findUserByCategory
+findUserBydueDate
+deleteUserByCategory
+deleteUserByTask
+deleteUserBydueDate
+deleteUserById
+*/
