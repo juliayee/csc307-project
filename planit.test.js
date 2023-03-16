@@ -4,16 +4,16 @@
 /* import { findUserBycategory } from './backend.js';
 
 /* 
-getUsers - 5 tests
-deleteUsers - 4 tests 
-getUserByCategory - 2 tests
+- getUsers - 5 tests
+- deleteUsers - 4 tests 
+getUserByCategory - 2 tests --needs 1 more
 deleteUserByCat - 2 tests
 deleteUserByT - 2 tests
 findUserById - ??
 addUser - ??
-findUserByTask
-findUserByCategory
-findUserBydueDate
+- findUserByTask
+- findUserByCategory
+- findUserBydueDate
 deleteUserByCategory
 deleteUserByTask
 deleteUserBydueDate
@@ -56,7 +56,7 @@ test("Testing getUsers 3, only category undefined -- success", async () => {
 
 test("Testing getUsers 4, only duedate undefined -- success", async () => {
   const result =
-    user -
+    (await user) -
     services.getUsers({
       task: "project 1",
       category: "csc307",
@@ -114,6 +114,31 @@ test("Testing deleteUser4, duedate undefined -- success", async () => {
       duedate: undefined,
     });
   expect(result).toEqual(false);
+});
+
+test("Testing getUserByCategory -- success", async () => {
+  const result = (await user) - services.getUsers({ category: "csc307" });
+  expect(result).toEqual(expect.arrayContaining(result));
+});
+
+test("Testing findUserByTask -- success", async () => {
+  const users = [
+    ["csc307", "project", "3/14/23", "yes"],
+    ["ant101", "lab 4", "3/16/23", "no"],
+  ];
+  const target = ["csc307", "project", "3/14/23", "yes"];
+  const result = myFunctions.findUserByTask("project");
+  expect(target).toBe(result);
+});
+
+test("Testing findUserByCategory -- success", async () => {
+  const users = [
+    ["csc307", "project", "3/14/23", "yes"],
+    ["ant101", "lab 4", "3/16/23", "no"],
+  ];
+  const target = ["csc307", "project", "3/14/23", "yes"];
+  const result = myFunctions.findUserByCategory("csc307");
+  expect(target).toBe(result);
 });
 
 test("Testing findUserBydueDate -- success", async () => {
