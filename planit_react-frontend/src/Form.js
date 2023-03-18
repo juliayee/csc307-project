@@ -50,7 +50,7 @@ function Form(props) {
 
   return (
     <form>
-      <b>Enter a Task</b>
+      <h2>Enter a Task</h2>
       <label htmlFor="task">Task</label>
       <input
         type="text"

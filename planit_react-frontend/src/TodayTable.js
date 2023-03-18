@@ -4,7 +4,7 @@ function TableHeader()  {
     return (
       <thead>
         <tr>
-          <th>Today</th>
+          <th>Today's Tasks</th>
           <th>Due Date</th>
           <th>Category</th>
           <th>Remove</th>

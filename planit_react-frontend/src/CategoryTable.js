@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-var category_val = null;
-
+//const [category_val, setCategoryVal] = useState(null);
+  function Table (props) {
 function TableHeader()  {
     return (
       <thead>
@@ -18,8 +18,12 @@ function TableHeader()  {
   function TableBody(props) {
     /*Gets rows with data and sees if category matches*/
     /*If yes, displayed in table*/
+    console.log("Entering table body.")
     const rows = props.characterData.map((row, index) => {
+      console.log("rows" + row.category);
+      console.log("cat val" + category_val);
       if(row.category === category_val){
+        console.log("returning category")
       return (
         <tr key={index}>      
   <td>{row.task}</td>
@@ -31,6 +35,7 @@ function TableHeader()  {
 </tr>
       );
     } else{
+      console.log("returning null");
       return null;
     }
      }
@@ -43,22 +48,30 @@ function TableHeader()  {
   }
 
   function submitCategory() {
-    category_val = document.getElementById("cat").value;
+    setCategoryVal(category);
+    console.log(category_val);
   }
 
-  function Table (props) {
+  function handleChange(event) {
+    const { value } = event.target;
+     setCategory(value);
+  }
+
+
+    const [category_val, setCategoryVal] = useState(null);
+    const [category, setCategory] = useState(null);
     return (
-      <td>
+      <div>
         <form>
           <label htmlFor="task">Enter a Category</label>
-          <input type="text" id="cat"/>
-          <button onClick={submitCategory}>Enter</button>
+          <input type="text" id="cat" value={category_val} onChange={handleChange}/>
+          <input type="button" value="Enter" onClick={submitCategory} />
         </form>
         <table>
           <TableHeader />
           <TableBody characterData={props.characterData} removeCharacter={props.removeCharacter} />
         </table> 
-      </td>
+      </div>
 
     );
   }
